@@ -1,6 +1,9 @@
+*{
+	cursor:url(../image/cursor.png) 0 0, default;
+}
+
 body{
 	background-color:#007b7b;
-	cursor:default;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
