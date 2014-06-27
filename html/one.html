@@ -3,15 +3,68 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link href="../css/main.css" rel="stylesheet" type="text/css"/>
+		<link href="../css/start.css" rel="stylesheet" type="text/css"/>
+		<link href="../css/window.css" rel="stylesheet" type="text/css"/>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<title>
 			one
 		</title>
 		<script>
+			$(document).ready(function(){
+				var selRect;
+				var doc = $(document);
+				doc.mousedown(function(e){
+					selectRect = $("#selectRect");
+					var h = doc.height();
+					var w = doc.width();
+					var l = e.pageX;
+					var t = e.pageY;
+					var r = w - l;
+					var b = h - t;
+					/*console.log("l:" + l);
+					console.log("t:" + t);
+					console.log("h:" + h);
+					console.log("w:" + w);
+					console.log("r:" + r);
+					console.log("b:" + b);*/
+
+					selectRect.css("bottom", b);
+					selectRect.css("top", t);
+					selectRect.css("left", l);
+					selectRect.css("right", r);
+					selectRect.show();
+
+					doc.mousemove(function(e){
+						if(e.pageY < t){
+							selectRect.css("top", e.pageY);
+							selectRect.css("bottom", b);
+						}
+						else{
+							selectRect.css("bottom", h - e.pageY);
+							selectRect.css("top", t);
+						}
+
+						if(e.pageX < l){
+							selectRect.css("left", e.pageX);
+							selectRect.css("right", r);
+						}
+						else{
+							selectRect.css("right", w - e.pageX);
+							selectRect.css("left", l);
+						}
+					});
+				}).mouseup(function(){
+					doc.off("mousemove");
+					selectRect.hide();
+				});
+			});
 		</script>
 		<style>
 		</style>
 	</head>
 	<body>
+		<div id="selectRect"></div>
 		<div id="startBar">
 			<div id="startBarB2"></div>
 			<div id="startBarB1"></div>
@@ -26,6 +79,10 @@
 						</div>
 					</div>
 				</div>
+			</div>
+			<div id="startTimeFrame">
+				<div id="startTime">12:07 AM</div>
+				<img class="notificationImg" src="../image/event.png">
 			</div>
 		</div>
 	</body>
