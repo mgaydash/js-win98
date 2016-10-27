@@ -1,0 +1,22 @@
+#startMenuOuter{
+	border-bottom:1px solid #000000;
+	border-left:1px solid #d8d8d8;
+	border-right:1px solid #000000;
+	border-top:1px solid #d8d8d8;
+	bottom:24px;
+	display:none;
+	height:340px;
+	position:fixed;
+	left:2px;
+	width:175px;
+	z-index:1;
+}
+#startMenuInner{
+	background-color:#c0c0c0;
+	border-bottom:1px solid #808080;
+	border-left:1px solid #ffffff;
+	border-right:1px solid #808080;
+	border-top:1px solid #ffffff;
+	height:338px;
+	width:173px;
+}

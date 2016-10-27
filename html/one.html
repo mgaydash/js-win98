@@ -5,6 +5,7 @@
 		<link rel="icon" type="image/png" href="../image/flag_16.png">
 		<link href="../css/main.css" rel="stylesheet" type="text/css"/>
 		<link href="../css/start.css" rel="stylesheet" type="text/css"/>
+		<link href="../css/startMenu.css" rel="stylesheet" type="text/css"/>
 		<link href="../css/window.css" rel="stylesheet" type="text/css"/>
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -15,6 +16,7 @@
 		<script>
 			$(document).ready(function(){
 				var doc = $(document);
+				var startMenu = $("#startMenuOuter");
 
 				//Create desktop selection rectangle
 				var selRect;
@@ -74,12 +76,18 @@
 
 				//Start button click handling
 				$("#startBtn1").on("mousedown.start", function(e){
+					startMenu.slideDown({
+						duration:80,
+						easing:"linear"
+					});
 					$("#startBtn1").css("background-color", "#ffffff");
 					$("#startBtn2").css("background-color", "#000000");
 					$("#startBtn3").css("background-color", "#dedede");
 					$("#startBtn4").css("background-color", "#7b7b7b");
-					// doc.mousedown(function(){
-					doc.on("mousedown.start", function(){
+					e.zzzz = "test";
+					doc.on("mousedown.start", function(e){
+						console.log(e);
+						startMenu.hide();
 						$("#startBtn1").removeAttr("style");
 						$("#startBtn2").removeAttr("style");
 						$("#startBtn3").removeAttr("style");
@@ -94,7 +102,14 @@
 		</style>
 	</head>
 	<body>
+		<div id="startMenuOuter">
+			<div id="startMenuInner"></div>
+		</div>
 		<div id="selectRect"></div>
+		<div class="deskIcon">
+			<div class="deskIconIcon"></div>
+			<div class="deskIconText">My Computer</div>
+		</div>
 		<div id="startBar">
 			<div id="startBarB2"></div>
 			<div id="startBarB1"></div>

@@ -1,7 +1,8 @@
 #startBar{
 	background-color:#bdbdbd;
+	border-bottom:1px solid #eaeaea;
 	bottom:0px;
-	height:28px;
+	height:27px;
 	left:0px;
 	position:fixed;
 	width:100%;
